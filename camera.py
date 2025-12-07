@@ -11,7 +11,7 @@ class Camera:
 
     dt: float = 1.0
     max_steps: int = int(6e1)
-    object_count: int = 1 # how many objects do you have
+    object_count: int = 3 # how many objects do you have
     max_dist: float = 30.0
     smtpEnabled: int = 1
 
@@ -216,27 +216,26 @@ class Camera:
                     self.accretionDisk_df(x,y,sdf=2)
 
                     self.planet_df(x,y, # hour planet
-                                   #ti.Vector([17.5,self.temp[0]]),
-                                   ti.Vector([17.5,0]),
+                                   ti.Vector([17.5,self.temp[0]]),
                                    ti.Vector([.7,.6,.4]),
                                    r_s*1.0,
                                    sdf=3
                                    )
                     
-                    #self.planet_df(x,y, # minute planet
-                    #               ti.Vector([13.5,self.temp[1]]),
-                    #               ti.Vector([.3,.4,.6]),
-                    #               r_s*.6,
-                    #               sdf=3
-                    #               )
+                    self.planet_df(x,y, # minute planet
+                                   ti.Vector([13.5,self.temp[1]]),
+                                   ti.Vector([.3,.4,.6]),
+                                   r_s*.6,
+                                   sdf=3
+                                   )
 
-                    #self.planet_df(x,y, # second planet
-                    #               ti.Vector([9.0,self.temp[2]]),
-                    #               ti.Vector([.5,.4,.5]),
-                    #               r_s*0.4,
-                    #               sdf=4
-                    #               )
-                    #self.grid_df(x,y, sdf=5)
+                    self.planet_df(x,y, # second planet
+                                   ti.Vector([9.0,self.temp[2]]),
+                                   ti.Vector([.5,.4,.5]),
+                                   r_s*0.4,
+                                   sdf=4
+                                   )
+                    self.grid_df(x,y, sdf=5)
 
                     d = ti.cast(self.max_steps * c, ti.f32)
                     all_away = 1
